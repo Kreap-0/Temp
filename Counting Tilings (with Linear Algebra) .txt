@@ -586,494 +586,279 @@ i 或 -i\N{\fs40}i and minus i
 
 例如这样一行一行地标号\N{\fs40}so for example just row by row
 
-there are some natural patterns emerging with clear diagonal lines
+一些自然的图案就会以对角线的形式出现\N{\fs40}there are some natural patterns emerging with clear diagonal lines
 
-if we are able to compute all of the eigenvalues
+如果我们能计算出所有特征值\N{\fs40}if we are able to compute all of the eigenvalues
 
-the product of the
+那么行列式的值就是特征值的积\N{\fs40}the product of the eigenvalues would equal the determinant
 
-eigenvalues would equal the determinant
+作为一个提醒\N{\fs40}as a reminder
 
-as a reminder since we are working with
+因为我们正在处理的是复数矩阵\N{\fs40}since we are working with complex value matrices
 
-complex valued matrices the
+特征多项式总可以被分解为一些线性的因式\N{\fs40}the characteristic polynomial always decomposes into linear factors
 
-characteristic polynomial always
+其中 λ_i 恰为矩阵的特征值\N{\fs40}with λ_i just being the eigenvalues of our matrix 
 
-decomposes into linear factors with
+令 x 为 0\N{\fs40}plugging zero for x
 
-lambda i just being the eigenvalues of
+在一边  我们得到矩阵的行列式\N{\fs40}we get the determinant of our matrix on the one side
 
-our
-
-matrix plugging 0 for x we get the
-
-determinant of our matrix on the one
-
-side and the product of all eigenvalues
-
-to the power of their multiplicity on
-
-the other side
+另一边  得到每个特征值的重复次数次方的积\N{\fs40}and the product of all eigenvalues to the power of their multiplicity on the other side
 
 [Music]
 
-before we dive into the determinant
+在我们深入研究行列式问题之前\N{\fs40}before we dive into the determinant problem
 
-problem let's think about the structure
+让我们考虑一下图 G{\fs32}mn{\r} 的结构\N{\fs40}let's think about the structure of G_mn
 
-of gmn
+类似于我们可以认为平面是 x 轴和 y 轴的乘积\N{\fs40}similar to how we can think of a plane being the product of the x and y axes
 
-similar to how we can think of a plane
+我们可以把网格图看作两条路径的乘积\N{\fs40}we can think of the grid graph as the product of two paths
 
-being the product of the x and y axis we
+具体来说\N{\fs40}concretely
 
-can think of the grid graph as the
+G{\fs32}mn{\r} 就是所谓长度为 m 和 n 的路径的笛卡尔积\N{\fs40}G_mn is the so-called cartesian product of the paths of length m and n
 
-product of two paths
+图里的顶点就是路径上点的普通笛卡尔积\N{\fs40}here the vertices are the ordinary cartesian product of the paths vertices
 
-concretely
+笛卡尔积的第一个部分是一条路径的一个点\N{\fs40}so with vertices of the one path in the first component
 
-gmn is the so-called cartesian product
+第二个部分是另一条路径的一个点\N{\fs40}and vertices of the other path in the second component
 
-of the paths of length m and n
+两个图中的点相连\N{\fs40}two vertices are connected by an edge
 
-here the vertices are the ordinary
+当且仅当它们其中一个参数相同\N{\fs40}if they are the same in one argument
 
-cartesian product of the paths vertices
+并且另一个参数所对应点是相连的\N{\fs40}and the vertices in the other argument are connected
 
-so with vertices of the one path in the
+这就得到了这样的网状结构\N{\fs40}which is exactly what gives us this grid structure
 
-first component and vertices of the
+这是由于一条边只能水平或竖直连接两个相邻的点\N{\fs40}since edges can connect two adjacent vertices either horizontally or vertically
 
-other path in the second component
+稍后我们就将看到  由于这个结构\N{\fs40}in a second we will see that because of this construction
 
-two vertices are connected by an edge if
+我们可以由笛卡尔积的每个部分的特征值推导出网格图的特征值\N{\fs40}we can derive the eigenvalues of the grid graph from the eigenvalues of its cartesian components
 
-they are the same in one argument in the
+所以  就让我们先来计算路径 P{\fs32}n{\r} 的特征向量和特征值\N{\fs40}so let's first calculate the eigenvectors and eigenvalues of the paths
 
-vertices in the other argument are
+而为了做到这点\N{\fs40}and to do that
 
-connected which is exactly what gives us
+先来计算这个环的特征值实际上会对我们有帮助\N{\fs40}it is actually helpful to first calculate the eigenvalues of the cycle
 
-this grid structure since edges can
+一个环的邻接矩阵好在  它是两个循环矩阵的和\N{\fs40}what makes the adjacency matrix of a cycle really nice is that it is the sum of two shift matrices
 
-connect two adjacent vertices either
+而这个矩阵可以被译作构成我们无向图的两个有向图\N{\fs40}these may be interpreted as the two directed cycles our undirected cycle is made out of
 
-horizontally or vertically
+第一个矩阵可以使得一个向量的分量向下位移\N{\fs40}the first matrix moves the components of a vector downwards
 
-in a second we will see that because of
+同时第二个矩阵使得其向量分量向上位移\N{\fs40}with the last component moving up to the first
 
-this construction we can derive the
+这意味着\N{\fs40}this means that
 
-eigenvalues of the grid graph from the
+如果你将这个矩阵应用 n 次  你就能得到最初的向量\N{\fs40}if you apply the matrix n times you just end up with the same vector
 
-eigenvalues of its cartesian components
+另一方面\N{\fs40}on the other hand
 
-so let's first calculate the
+如果 v 是该矩阵的一个特征向量  且特征值是 λ\N{\fs40}if v were an eigenvector of that matrix to the eigenvalue lambda
 
-eigenvectors and eigenvalues of the
+乘 n 次这个矩阵就等价于乘上 λ 的 n 次方\N{\fs40}multiplying by the matrix n times is equivalent to multiplying it with lambda to the n
 
-paths and to do that it is actually
+那么 λ 的 n 次方就等于 1\N{\fs40}so lambda to the n needs to be one
 
-helpful to first calculate the
+所以 λ 就是 n 次单位根之一或其倍数\N{\fs40}so lambda is one of the nth roots of unity and up to multiples
 
-eigenvalues of the cycle
+每个对应的特征向量相当于是 λ 的 0~n-1 次方的一个列表\N{\fs40}every corresponding eigenvector is just a list of the first n powers of lambda
 
-what makes the adjacency matrix of a
+第二个矩阵使向量分量向上移位\N{\fs40}the second matrix moves the components upwards
 
-cycle really nice is that it is the sum
+意味着这就是第一个矩阵的逆\N{\fs40}which just means that it is actually inverse to our first matrix
 
-of two shift matrices
+所以这个矩阵与第一个矩阵具有完全相同的特征向量\N{\fs40}so this matrix has the exact same eigenvectors as the first one
 
-these may be interpreted as the two
+但特征值应是 1/λ 而非 λ\N{\fs40}but to the eigenvalue of lambda to the minus 1 instead of lambda
 
-directed cycles our undirected cycle is
+总得来说\N{\fs40}to literally sum it up
 
-made out of
+C{\fs32}n{\r} 的特征值就应是 λ+1/λ \N{\fs40}the eigenvalues of C_n are of the form lambda plus lambda to the minus 1
 
-the first matrix moves the components of
+其中 λ 是一个 n 次单位根\N{\fs40}where lambda is an nth root of unity
 
-a vector downwards with the last
+或更准确地来说  应是 λ 实部的两倍\N{\fs40}or more explicitly as twice the real part of lambda
 
-component moving up to the first
+为 2cos(2πk/n)\N{\fs40}2 cosine 2pi k divided by n
 
-this means that if you apply the matrix
+其对应的特征向量是一个包含所有 e^{j*2πik/n} 的列表\N{\fs40}where the corresponding eigenvector is the list of powers of e to the 2 pi k i divided by m
 
-n times you just end up with the same
+注意到由于对称性  λ 和 1/λ 所生成的特征向量都对应了相同的特征值\N{\fs40}notice how by symmetry the eigenvector generated by lambda and lambda to the minus 1 are both to the same eigenvalue
 
-vector
+让我们继续讨论路径的邻接矩阵\N{\fs40}let's move on to the adjacency matrix of a path
 
-on the other hand if we were an
+对于长度为 n 的路径\N{\fs40}for a path of length n
 
-eigenvector of that matrix to the
+我们可以先考虑一个长度为 2n+2 的环  然后在稍后切掉一小段\N{\fs40}we will consider the cycle of length 2n+2 and then cut off some bits later
 
-eigenvalue lambda
+由 λ 及其逆生成的特征向量\N{\fs40}the eigenvector generated by our lambda and its inverse
 
-multiplying by the matrix n times is
+都对应相同的特征值 2cos(πk/(n+1))\N{\fs40}both correspond to the same eigenvalue 2 cosine pi k divided by n plus 1
 
-equivalent to multiplying it with lambda
+所以他们的差也是其一个特征向量\N{\fs40}so that difference is also an eigenvector to that eigenvalue
 
-to the n so lambda to the n needs to be
+这个差是非零的\N{\fs40}the difference is non-zero
 
-1.
+但在第零项和第 n+2 项为零\N{\fs40}but has zero entries in the first component and the n plus second component
 
-so
+因为从这儿我们依次得到 1-1 和 (-1)-(-1)\N{\fs40}since there we just get one minus one and minus one minus minus one respectively
 
-lambda is one of the nth roots of unity
+现在看看这在结构上意味着什么\N{\fs40}now look at what this means structurally
 
-and up to multiples every corresponding
+路径的邻接矩阵作为一个块矩阵被包含在环的邻接矩阵中\N{\fs40}the adjacency matrix of our path is contained in the adjacency matrix of our cycle as a block matrix
 
-eigenvector just a list of the first n
+同时因为第零项和第 n+2 项为 0\N{\fs40}and as the first and n plus second component are 0
 
-powers of lambda
+我们可以任意改变这两行同时保持特征向量不变\N{\fs40}we can just change the adjacency matrix in those columns while still keeping our eigenvector
 
-the second matrix moves the components
+所以我们可以直接把这个环切成两个\N{\fs40}so we just cut the cycle in two
 
-upwards which just means that it is
+只需将我们的目光放在第 2 行到第 n+1 行对应的块矩阵当中\N{\fs40}basically restricting ourselves to the second to n plus first component of the vector in the corresponding block matrix
 
-actually inverse to our first matrix
+这说明一条路径的特征向量正是 2cos(πk/(n+1))\N{\fs40}this shows that the eigenvalues of a path are 2 cosine pi k divided by n plus 1
 
-so this matrix has the exact same
+现在  对于最后一步\N{\fs40}now for the grand finale
 
-eigenvectors as the first one but to the
+我们只需要最后应用 G{\fs32}mn{\r} 是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 的积的事实\N{\fs40}let's finally make use of the fact that our grid graph G_mn is the product of P_m and P_n
 
-eigenvalue of lambda to the minus 1
+然后明确地将我们的矩阵中的点标号\N{\fs40}and index our matrix explicitly with the vertices
 
-instead of lambda
+之后将证明 G{\fs32}mn{\r} 的带权邻接矩阵的特征向量\N{\fs40}it will turn out that the eigenvectors of G_mn's weighted adjacency matrix K
 
-to literally sum it up the eigenvalues
+大体上就是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 特征向量的积\N{\fs40}are basically the product of the eigenvectors of pm and pn
 
-of cn are of the form lambda plus lambda
+对于 P{\fs32}m{\r} 的特征向量 v 及特征值 λ 和 P{\fs32}n{\r} 的特征向量 w 及特征值 μ\N{\fs40}for eigenvectors v of pm and w of pn to eigenvalues lambda and mu
 
-to the minus 1 where lambda is an nth
+我们定义一个新向量  它在某种意义上是二者的乘积\N{\fs40}we define a new vector that is in a certain sense the product of the two
 
-root of unity
+我们将元素依次标号 1~m*n\N{\fs40}we index the entries with m times n
 
-or more explicitly as twice the real
+并令项 (x,y) 的值为 v 的第 x 个分量乘上 w 的第 y 个分量\N{\fs40}and set the (x,y) component to be the product of the x component of v in the y component of w
 
-part of lambda
+then looking at the x y row of k multiplied with our vector v tensor w
 
-2 cosine 2pi k divided by n
+we get the following expression
 
-where the corresponding eigenvector is
+where we have equality because the term and the sum can only be non-zero
 
-the list of powers of e to the 2 pi k i
+if the vertices are adjacent
 
-divided by m
+now accounting for the weights we apply to vertical and horizontal edges respectively
 
-notice how by symmetry the eigenvector
+this simplifies to the following two sums
 
-generated by lambda and lambda to the
+each of the sums only depends on one of the variables
 
-minus 1 are both to the same eigenvalue
-
-let's move on to the adjacency matrix of
-
-a path
-
-for a path of length n we will consider
-
-the cycle of length 2n plus 2 and then
-
-cut off some bits later the eigenvector
-
-generated by our lambda and its inverse
-
-both correspond to the same eigenvalue 2
-
-cosine pi k divided by n plus 1. so that
-
-difference is also an eigenvector to
-
-that eigenvalue
-
-the difference is non-zero but has zero
-
-entries in the first component and the n
-
-plus second component since there we
-
-just get one minus one and minus one
-
-minus minus one respectively
-
-now look at what this means structurally
-
-the adjacency matrix of our path is
-
-contained in the adjacency matrix of our
-
-cycle as a block matrix and as the first
-
-and n plus second component are 0 we can
-
-just change the adjacency matrix in
-
-those columns while still keeping our
-
-eigenvector
-
-so we just cut the cycle in two
-
-basically restricting ourselves to the
-
-second to n plus first component of the
-
-vector in the corresponding block matrix
-
-this shows that the eigenvalues of a
-
-path are 2 cosine pi k divided by n plus
-
-1.
-
-now for the grand finale let's finally
-
-make use of the fact that our grid graph
-
-gmn is the product of pm and pn and
-
-index our matrix explicitly with the
-
-vertices
-
-it will turn out that the eigenvectors
-
-of gmn's weighted adjacency matrix k are
-
-basically the product of the
-
-eigenvectors of pm and pn
-
-for eigenvectors v of pm and w of pn to
-
-eigenvalues lambda and mu we define a
-
-new vector that is in a certain sense
-
-the product of the two
-
-we index the entries with m times n and
-
-set the xy component to be the product
-
-of the x component of v in the y
-
-component of w
-
-then looking at the x y row of k
-
-multiplied with our vector v tensor w we
-
-get the following expression where we
-
-have equality because the term and the
-
-sum can only be non-zero if the vertices
-
-are adjacent
-
-now accounting for the weights we apply
-
-to vertical and horizontal edges
-
-respectively
-
-this simplifies to the following two
-
-sums
-
-each of the sums only depends on one of
-
-the variables so we can pull the other
-
-one out and get that v tensor w is in
-
-fact an eigenvector with eigenvalue
-
-lambda plus i times mu
+so we can pull the other one out and get that v tensor w is in fact an eigenvector with eigenvalue lambda plus i times mu
 
 so knowing the eigenvalues of pm and pn
 
-we get that the eigenvalues of k are the
+we get that the eigenvalues of k are the sum of these two cosine terms
 
-sum of these two cosine terms where x
+where x and y range from one to m and one to n respectively 
+and we finally arrive at the astounding fact
 
-and y range from one to m and one to n
+that the determinant can be expressed as the following double product
 
-respectively and we finally arrive at
+and as we have seen before
 
-the astounding fact that the determinant
+the number of domino tilings of an n-by-n board is just the square root of this
 
-can be expressed as the following double
+this is the formula for the number of tilings that we have wanted all along
 
-product
+but it is also worth mentioning that it is truly amazing
 
-and as we have seen before the number of
+how this expression containing roots irrational and imaginary numbers actually always evaluates to an integer
 
-domino tilings of an n-by-n board is
+at least for some values you can see the correspondence to our original problem
 
-just the square root of this
+if m and n are both odd
 
-this is the formula for the number of
+then n plus one and n plus one are both even
 
-tilings that we have wanted all along
-
-but it is also worth mentioning that it
-
-is truly amazing how this expression
-
-containing roots irrational and
-
-imaginary numbers actually always
-
-evaluates to an integer
-
-at least for some values you can see the
-
-correspondence to our original problem
-
-if m and n are both odd then n plus one
-
-and n plus one are both even in the m
-
-plus one half n plus one half term in
-
-the product vanishes
+and the m plus one half n plus one half term in the product vanishes
 
 [Music]
 
 also
 
-maybe to amaze kids that just learned
+maybe to amaze kids that just learned about trigonometry but don't know anything about complex numbers
 
-about trigonometry but don't know
+you can get rid of the eye as follows
 
-anything about complex numbers you can
+if both m and n are even
 
-get rid of the eye as follows
+then we have the following simplifications of the cosine terms
 
-if both m and n are even then we have
+so the product simplifies like this
 
-the following simplifications of the
+and we can actually count the number of perfect matchings for even m and n using this real formula
 
-cosine terms so the product simplifies
+it turns out that in general we have to round up the upper bounds
 
-like this
+which will make the formula work in cases where at least one of m and n is odd
 
-and we can actually count the number of
+but we have done enough tedious calculations for now
 
-perfect matchings for even m and n using
+so we will leave it at that
 
-this real formula
+even though it took us the entire video to develop this theorem first arrived by fischer castelline in temple
 
-it turns out that in general we have to
+we really are just scratching the surface
 
-round up the upper bounds which will
+the first generalization would probably be to allow holes in our board
 
-make the formula work in cases where at
+in this case our formula still works sometimes
 
-least one of m and n is odd
+but sometimes it also fails
 
-but we have done enough tedious
+you might also naturally ask the same question but for different dominoes or different shapes making up the board
 
-calculations for now so we will leave it
-
-at that
-
-even though it took us the entire video
-
-to develop this theorem first arrived by
-
-fischer castelline in temple a we really
-
-are just scratching the surface
-
-the first generalization would probably
-
-be to allow holes in our board
-
-in this case our formula still works
-
-sometimes but sometimes it also fails
-
-you might also naturally ask the same
-
-question but what different dominoes or
-
-different shapes making up the board
-
-what is the number if we consider higher
-
-dimensions
+what is the number if we consider higher dimensions
 
 or maybe work on a taurus instead
 
-on the graph theory side while computing
+on the graph theory side
 
-the number of perfect matchings in a
+while computing the number of perfect matchings in a graph is a very hard problem
 
-graph is a very hard problem the class
+the class of graphs for which our signing trick works are called faffin
 
-of graphs for which our signing trick
+which does have to do with the faffi and you may know from linear algebra
 
-works are called faffin which does have
+in particular it is actually known that all planar graphs are fufian
 
-to do with the faffi and you may know
+and a signing can be found using the so-called fkt algorithm
 
-from linear algebra
+named after the physicists who also came up with our main theorem
 
-in particular it is actually known that
+maybe going back to tilings there is a very curious phenomenon happening
 
-all planar graphs are fufian and a
+if we look at random tilings from certain large mutilated boards
 
-signing can be found using the so-called
+if we color the dominoes depending on how they are placed on the board
 
-fkt algorithm
+we see a distinctive circle in the middle of the board
 
-named after the physicists who also came
+in general even for other tidings
 
-up with our main theorem
+a similar thing can be observed
 
-maybe going back to tilings there is a
+finally
 
-very curious phenomenon happening if we
+although the last formula we derived is not really of any direct practical value
 
-look at random tilings from certain
+you would get a lot of rounding errors with those cosines very quickly
 
-large mutilated boards
+it is just as important and as beautiful as the previous practical steps
 
-if we color the dominoes depending on
+mathematics is about finding new and surprising connections
 
-how they are placed on the board we see
-
-a distinctive circle in the middle of
-
-the board
-
-in general even for other tidings a
-
-similar thing can be observed
-
-finally although the last formula we
-
-derived is not really of any direct
-
-practical value you would get a lot of
-
-rounding errors with those cosines very
-
-quickly
-
-it is just as important and as beautiful
-
-as the previous practical steps
-
-mathematics is about finding new and
-
-surprising connections regardless of how
-
-practically useful they turn out to be
-
-
+regardless of how practically useful they turn out to be
