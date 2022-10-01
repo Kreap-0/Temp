@@ -1,0 +1,1079 @@
+如果你曾经上过离散数学或组合数学的课\N {\fs40} if you have ever taken a class in discrete maths or combinatorics 
+
+你可能会遇到过这样的练习\N {\fs40} you might have come across the following exercise
+
+既  我们被要求计算用一些 2x1 的多米诺骨牌来铺满一个 2xn 的棋盘的方案数\N {\fs40} where we are asked to calculate the number of ways a 2 by n board can be tiled with two by one domino tiles
+
+如果这是你第一次听说这个问题\N {\fs40} if this is the first time you ever heard of this question
+
+那这可能相当困难\N {\fs40} it may seem fairly hard
+
+这里既没有一种对所有填充方案比较显然的排序方式\N {\fs40} there neither seems to be an obvious way to order the titlings
+
+也不能确保你考虑了所有可能情况\N {\fs40} nor to make sure that you have accounted for all the possibilities
+
+所以  我们要怎样着手这个问题呢\N {\fs40} so how do we go about this
+
+我们先来给我们要求的这个东西命个名\N {\fs40} let's first give the thing we are looking for a name
+
+因为名字让大多数这样的东西没那么可怕\N {\fs40} since names make most things less scary
+
+那么从现在开始  我们将用 f{\fs32}n{\r} 来表示铺满 2xn 的棋盘的方案总数\N {\fs40} so from now on we will write f_n for the number of ways to tile the 2 by n board
+
+同时  计算前几个值总是一个好主意  这样我们有望得到一些启发\N {\fs40} also it is always a good idea to compute the first few values to hopefully get some inspirations
+
+对于 f_1   我们有且仅有一种可能\N {\fs40} for f1 we already have only one possibility
+
+而对于 f_2   我们有两种方式\N {\fs40} and for f2 we have two ways
+
+既  要么全部横着放要么全部竖着放\N {\fs40} either we place both tiles horizontally or both vertically
+
+对于 f_3   问题已经变得有点棘手了\N {\fs40} for f3 the problem already becomes a bit trickier
+
+但我们仍然可以算出  我们有以下三种铺法\N {\fs40} but we can still figure out that we have the following three tilings
+
+通过更多的计算\N {\fs40} with even more work
+
+我们得到 f_4 为 5\N {\fs40} we get for f4 five different tilings
+
+此时  我们可能会注意到\N {\fs40} at this point we might notice that
+
+至少对于这前几项来说\N {\fs40} at least for the first few terms
+
+方案数总是它前两项的和\N {\fs40} that the number of tilings is always the sum of its two predecessors
+
+现在我们来更细致地观察这些平铺方案本身\N {\fs40} let's look a bit more closely at the tilings themselves now
+
+比较 2x1 2x2 2x3 的情况下的方案\N {\fs40} comparing the tilings of the 2 by 1,2 by 2 and 2 by 3 cases
+
+每个 2x3 的方案\N {\fs40} every tiling for the 2 by 3 case
+
+要么可以从一个 2x1 的棋盘后连两个水平的骨牌构造而来\N {\fs40} can either be constructed by attaching two horizontal tiles to a tiling of a 2 by 1 board
+
+要么可以从一个 2x2 的棋盘后接一个竖着的骨牌构造而来\N {\fs40} or one vertical tile to a tiling of a 2 by 2 board
+
+这对 2x4 的情况同样成立\N {\fs40} the same holds true for the two by four case
+
+一般地  给定一个 2xn 的棋盘\N {\fs40} in general given a two by n board
+
+一个平铺方案的最右边两个格子要么是一个竖着放的骨牌要么是两个横着放的骨牌\N {\fs40} A tiling can either have its right most two squares filled with one vertical tile or two horizontal tiles
+
+那么根据定义\N {\fs40} so by definition
+
+分别有 f_{n-1} 和 f_{n-2} 种方式来铺满棋盘上剩余的格子\N {\fs40} there are f_{n-1} and f_{n-2} ways respectively to tile the remaining board
+
+表明 fn 等于 fn-1 加 fn-2 \N {\fs40} showing that f_n equals f_{n-1} plus f_{n-2}
+
+你可能以前见过这个式子\N {\fs40} you might have seen this formula before
+
+因为将这并上一个起始值 1 的话就正是斐波那契数的递归定义\N {\fs40}  since this together with the starting value 1 really is just the recursive definition of the fibonacci numbers
+
+或根据定义  这应是第 n+1 个斐波那契数\N {\fs40}or rather the (n+1)th fibonacci number depending on your definition
+
+要么通过了解 Binet 公式——这给出了计算斐波那契数的明确方法\N {\fs40}either by knowing Binet's formula which gives an explicit way to calculate fibonacci numbers
+
+要么通过使用一段时间的递归\N {\fs40}or by using the recursion in some time
+
+我们现在可以计算出有这么多平铺一个 2x42 的棋盘的方案\N {\fs40}we can now calculate that there are this many ways to tile a 2 by 42 board
+
+现在一个很自然的问题当然是  对于一般的 mxn 的棋盘  答案是什么？\N {\fs40}the natural question now is of course what the answer for general m by n boards is
+
+即当我们不限制第一维度的大小为 2 的时候\N {\fs40}that is when we don't restrict the size to only 2 in the first dimension
+
+不幸的是  这个推导比我们刚才看到的要复杂得多\N {\fs40} unfortunately the derivation for that is far more complicated than what we just witnessed
+
+且据我所知这并不能通过一个简单的递归解决\N {\fs40} and to my knowledge can't be solved with one simple recursion
+
+但在我们获得最终满意答案的过程中\N {\fs40}but on our journey to get a final satisfactory answer
+
+我们将使用大量的工具\N {\fs40}we will make use of a wide range of tools
+
+涉及图论和令人惊讶的大量线性代数\N {\fs40}involving both graph theory and a surprisingly big amount of linear algebra
+
+[Music]
+
+为了熟悉情况\N {\fs40} for the sake of familiarity
+
+我们现在来考虑一个典型的8x8的棋盘\N {\fs40} let's consider for now a typical 8x8 chessboard
+
+把问题重新表述为我们更熟悉的内容总是一个好主意\N {\fs40}it is always a good idea to rephrase the problem to something we are more familiar with
+
+所以让我们先来讨论一下一个多米诺骨牌平铺实际上意味着什么\N {\fs40}so let's discuss what we actually mean by a domino tiling
+
+正如这些颜色所示\N {\fs40}as suggested by the colors
+
+一个多米诺骨牌总是覆盖了两个相邻的格子\N {\fs40}the domino always covers two neighboring squares
+
+一个黑的一个白的\N {\fs40}one of which is black and the other white
+
+同时当我们谈论平铺的时候\N {\fs40}also when we talk about tilings
+
+我们当然不想让这些骨牌重叠\N {\fs40}we of course do not want the tiles to overlap
+
+意味着每个黑块一定和一个唯一的相邻白块匹配  反之亦然\N {\fs40}meaning that every black square is to be matched to your unique neighboring white square and vice versa
+
+对于我们的第一步\N {\fs40}as our first step
+
+我们不去思考这个棋盘本身\N {\fs40}instead of thinking about the board itself
+
+而是可以另考虑一个图\N {\fs40}we can think about a graph
+
+其中每个方块用一个顶点表示\N {\fs40}where each square is represented by a vertex
+
+相邻的两个方块用一条边表示\N {\fs40}and two squares being adjacent is indicated by an edge
+
+这让我们得到一个网格状的二分图\N {\fs40}this gives us this bipartite sort of grid like graph
+
+这在某种意义上讲和将原棋盘上的格子分开的网状图是对偶的\N {\fs40}that is in some sense dual to the grid-like graph separating the squares of our original board
+
+在这种新情景下\N {\fs40}in this new setting
+
+一种平铺方式可用这些边的一个子集来表示\N {\fs40}the tiling is represented by a subset of the edges
+
+其中每个顶点都是恰好一条边的端点\N {\fs40}where every vertex is endpoint of exactly one of its edges
+
+这符合了每个原棋盘的格子都恰好和其一个相邻的格子匹配的事实\N {\fs40}this corresponds to the fact that each square of the original board is matched with exactly one of its neighboring squares
+
+因此  这样的边的子集被称为完美匹配\N {\fs40}therefore such subsets of the edges are known as perfect matchings
+
+那么作为第一次转化  我们不去计数一个 mxn 的棋盘的平铺方案数\N {\fs40}so as the first reduction instead of counting the number of tilings of an m-by-n board
+
+而是计数这个 mxn 的网格图里的完美匹配个数\N {\fs40}we count the number of perfect matchings in this m-by-n grid graph
+
+从现在起我们将这记为 G{\fs32}m,n{\r}\N{\fs40}which we will from now call G{\fs32}m,n
+
+现在  我们运用这是一个二分图这一点\N{\fs40}now let's utilize the fact that the graph is bipartite
+
+对此  我们看回 G{\fs32}8,8{\r} 这个图\N{\fs40}for that let us look again at the graph G{\fs32}8,8
+
+并从 1 到 32 依次对所有黑白点编号\N{\fs40} and enumerate its black and white vertices from 1 to 32 respectively
+
+正如我们所观察到的\N{\fs40} as we have observed
+
+一个匹配只会发生在相反颜色之间\N{\fs40} A match can only happen between vertices of opposite colors 
+
+且对于一个完美匹配  每个点都需要匹配\N{\fs40} and for a perfect matching each vertex has to be matched
+
+因此我们可以将完美匹配看作一种从黑点到白点的映射\N{\fs40}we can therefore think of a perfect matching as a sort of mapping from each black vertex to a white vertex
+
+因为每个点都有唯一一个匹配\N{\fs40}because for each vertex the match is unique
+
+所以这是一个双射\N{\fs40}this mapping has to be bijective
+
+再运用我们对点的标号\N{\fs40}and using the labeling of our vertices
+
+我们可以将其视作一个 1 到 32 的置换\N{\fs40}we can think of it as a permutation of the numbers 1 to 32
+
+或一般地是 1 到 mn/2 的置换\N{\fs40}or in general 1 to mn/2
+
+但我们并不想把这坨表达式拽来拽去\N{\fs40}we don't want to drag this expression around
+
+所以我们将 mn/2 定义为大 N \N{\fs40}so we'll define m times n halves to be capital n
+
+由此  我们现在对我们的问题有了更多的了解\N{\fs40}from this we have now gathered some more insight into our problem
+
+例如  如果 m 和 n 都是奇数\N{\fs40}for example if m and n are both odd
+
+那对应的 mxn 的网格图就不能被分成大小相同的黑白两组\N{\fs40}the m times n vertices of the corresponding grid graph can't be divided up into two equal sized groups of black and white
+ 
+所以在这种情况下  实际上找不出完美匹配\N{\fs40}so in this case it is in fact impossible to find a perfect matching
+
+同时  由于我们将标号固定了\N{\fs40}also with the labeling fixed
+
+每个完美匹配都与一个唯一的置换相对应\N{\fs40}every perfect matching corresponds to a unique permutation
+
+那么完美匹配的个数就最多是大 N 的阶乘\N{\fs40}so the number of perfect matchings is at most capital n factorial
+
+这并不是一个很好的上界但或许是一个开始\N{\fs40}which is not a great upper bound but maybe a start
+
+显然有一些置换找不到完美匹配与之对应\N{\fs40}there are clearly permutations which do not correspond to a perfect matching
+
+这是因为我们还没有考虑相匹配的黑白点一定是相邻的这一事实\N{\fs40}since we haven't yet accounted for the fact that the black and white vertices in a match have to be neighbors
+
+所以我们应可以优化这个上界\N{\fs40}so we should be able to improve that upper bound 
+
+且实际上甚至可以得到一个确切的结果\N{\fs40}and will in fact even arrive at an exact result
+
+为了完成这一点  我们需要更多的一些定义\N{\fs40}to do this we will need a couple of more definitions
+
+我们定义 b{\fs32}i,j{\r} 等于 1  如果此时第 i 个黑点和第 j 的白点是相邻的\N{\fs40}we define bij to be 1 if the ith black vertex is adjacent to the jth white vertex
+
+否则定义为 0\N{\fs40}and otherwise zero
+
+那么对我们的置换 σ   我们可以取所有 b{\fs32}i,σ{\fs20}i{\r} 的积\N{\fs40}then for our permutation sigma we can just take the product over all bi sigma_i
+
+如果一个置换可以找到在图中与之对应的完美匹配\N{\fs40}if the permutation corresponds to a perfect matching in our graph
+
+那么这个积就等于 1\N{\fs40}the product will be equal to one
+
+如果在 σ 中有两个不相邻的点匹配了\N{\fs40}if there are two non-adjacent vertices being matched by sigma
+
+其中一个 b{\fs32}i,σ{\fs20}i{\r} 就会等于 0   从而整个积为 0\N{\fs40}one of the bi sigma i will be zero making the whole product 0 as well
+
+所以如果我们对所有可能的置换 σ 的这个积求和 \N{\fs40}so if we take the sum over all possible permutations of this product 
+
+我们就会得到完美匹配的个数如下\N{\fs40}we get the following for the number of perfect matchings
+
+这里 S{\fs32}N{\r} 表示所有 1 到 n 的置换的集合\N{\fs40}here sn denotes the set of permutations of the numbers 1 to n 
+
+我们看回这个我们刚刚得到的式子\N{\fs40}let's take a second look at this formula we just arrived
+
+这对你来说熟悉吗\N{\fs40}does it look familiar to you
+
+这实际上是丢掉了前面的 σ 的符号后\N{\fs40}this is in fact a part from the sign of sigma missing
+
+计算一个矩阵 b 的行列式的拉普拉斯公式的一部分 \N{\fs40}just the Laplace formula for the determinant of the n by n matrix b with entries bij
+
+这个矩阵被称为邻接矩阵 \N{\fs40}this matrix is known as the by adjacency matrix
+
+因为它编码了一个二分图中的所有邻接关系\N{\fs40}as it encodes all the adjacencies in a bipartite graph
+
+同时我们可以看到\N{\fs40}and as we saw
+
+它的行列式几乎就是我们要求的东西\N{\fs40}the determinant of this is nearly the thing that we want
+
+除去符号的这个表达式叫做积和式\N{\fs40}the expression without the sign is called the permanent
+
+虽然它迷惑性地看上去和行列式很像\N{\fs40}and while looking deceptively similar to the determinant
+
+但并没有真正的几何意义\N{\fs40}it has no real geometric meaning
+
+且由于不能很好的进行行变换而难以计算\N{\fs40}and is very hard to compute as it doesn't behave nicely under row operations
+
+但或许我们仍可以让这行得通\N{\fs40}but maybe we can still make it work
+
+如果元素 b{\fs32}i,j{\r} 要么是 0 要么是 1 会怎么样呢\N{\fs40}what if instead of the bij being either 0 or 1
+
+我们选择一些不同的值来抵消 σ 的符号项的作用\N{\fs40}we choose some different values to cancel out the sign of the sigma term
+
+如果我们能做到这一点\N{\fs40}if we could do this
+
+那我们只需要取这个有新权重的矩阵的行列式  然后从那里着手\N{\fs40}we would only have to take the determinant of that new weighted matrix and proceed from there
+
+一个提醒\N{\fs40}as a reminder
+
+一个置换的符号只会是 1 或 -1   且取决于这个置换的奇偶性\N{\fs40}the sign of a permutation is either one or minus one depending on the parity of the permutation
+
+探讨奇偶性的一种方法是计算逆序对个数\N{\fs40}one way to think about the parity is to count the number of inversions
+
+然后看它是偶数还是奇数\N{\fs40}and see if it's even or odd
+
+在这种情景下  一个逆序对 (i,j) 意味着对于一个小于 j 的 i 在置换中被映射到了一个大于 j 的值\N{\fs40}what inversion means in this context is that for i less than j , i gets mapped to something larger than j
+
+即这意味着两个数字相对于彼此被重新定义排序\N{\fs40}so it just means a reordering of two numbers relative to each other
+
+具体一点\N{\fs40}concretely
+
+如果我们将每个数和它的映射间连一根线来绘制这个置换\N{\fs40}if we were to draw the permutation by connecting each number to its image
+
+那么逆序对个数就对应于线之间交叉的数量\N{\fs40}the number of inversions corresponds to the number of crossings
+
+如果是偶数  符号就为 1   否则为 -1\N{\fs40}if it's even the sign is one and otherwise minus one
+
+特别地\N{\fs40}in particular
+
+如果我们对其应用恰好交换两个元素的置换\N{\fs40}if we were to apply the permutation that swaps exactly two elements so to speak
+
+符号就会改变\N{\fs40}the sign changes
+
+这些特殊的交换被称为换位\N{\fs40}these special swaps are called transpositions
+
+且之后会有用\N{\fs40}and will be helpful later
+
+[Music]
+
+让我们继续寻找对我们的矩阵的必要调整\N{\fs40}let's proceed to find the necessary adjustments to our matrix
+
+同样  你应该首先考虑最简单的如 2x2 棋盘的例子\N{\fs40}again you should first think about the simplest example like the 2x2 board
+
+正如我们所看到的\N{\fs40}as we have seen
+
+平铺这块棋盘有恰好两种方法\N{\fs40}there are exactly two ways to tile this board
+
+而所对应的矩阵 b 的所有元都是 1\N{\fs40}and the corresponding matrix b just has one in all of its entries
+
+运用这个公式\N{\fs40}using the formula
+
+我们看到  由于符号不同  置换的对应项会被抵消掉\N{\fs40}we see that the terms corresponding to the permutations will cancel due to their signs being different
+
+当然  我们知道正确答案应是 2\N{\fs40}of course we know that correct answer is 2
+
+因此  这仍不太奏效\N{\fs40}so something is still not quite working
+
+我们并不想改变我们要对所有置换求和的事实\N{\fs40}we don't really want to change the fact that we are summing over all permutations
+
+同时我们又想保留这个符号函数\N{\fs40}and we would also like to keep the sign function
+
+因为我们仍想尝试将积和式化为一个行列式的形式\N{\fs40}because we are still trying to reduce the permanent down to a determinant
+
+所以剩下的唯一自由度就是边权了\N{\fs40}so the only degree of freedom left are the edge weights
+
+对于 2x2 的情况\N{\fs40}for the 2x2 case
+
+我们有一项符号是正的  一项是负的\N{\fs40}we have one term with positive and one with negative permutation sign
+
+现在  我们能够通过更改第二种匹配中的边权\N{\fs40}now can we maybe change the edge weights on that second matching
+
+来使得符号被抵消且保持积仍为 1 吗\N{\fs40}such that the sign cancels out while still keeping the product one
+
+这有很多方式可以做到\N{\fs40}well there are many ways to do this
+
+但因为我们将在稍后将这两块合并统一成更大的部分\N{\fs40}but because we will combine these two by two blocks into bigger segments later
+
+我们很想让左边和右边的权重相等\N{\fs40}we really want the weights on the left and right to be the same
+
+这留给我们两种选择\N{\fs40}this leaves us with two options
+
+i 或 -i\N{\fs40}i and minus i
+
+都行得通  但为了简单起见不妨就用 i\N{\fs40}both would work but for simplicity's sake let's just go with i
+
+一般地\N{\fs40}in general
+
+我们令 b{\fs32}i,j{\r} 为 1 如果对应的黑白点被一条水平线连接\N{\fs40}we will then set b{\fs32}i,j{\r} to be 1 if the corresponding black and white vertices are connected by a horizontal edge
+
+令为 i 如果它们被一条竖直线连接\N{\fs40}i if they are connected by a vertical edge
+
+令为 0 如果它们根本就不相邻\N{\fs40}and 0 if they aren't adjacent at all
+
+这种情况下\N{\fs40}at this point
+
+这为什么行得通并不是很显然\N{\fs40}it is not obvious at all why this should work in general
+
+但我们希望的是让这个置换的符号和这些边权的乘积的符号抵消掉\N{\fs40}but what we are hoping for is that the sign of the permutation and the product of the weights will cancel out
+
+当然\N{\fs40}of course
+
+行列式的确切值始终取决于黑白顶点的标号顺序\N{\fs40}the exact value of the determinant will always depend on the enumeration of the black and white vertices
+
+如果我们对这个 2x2 的棋盘换种方式标号\N{\fs40}if we had enumerated differently for the 2x2 case
+
+结果就会变为 -2\N{\fs40}the result would have been -2 instead
+
+而对于更大的情况我们甚至会得到一些没有意义的值\N{\fs40}and for bigger cases we might even get something imaginary
+
+但所有的这一切都可以通过取绝对值来简单地修正\N{\fs40}but all of this will be easily fixed by just taking the absolute value
+
+只要所有的非零项都有相同的符号\N{\fs40}as long as all the non-zero summons have the same sign
+
+现在  让我们证明这是事实\N{\fs40}so now let's show that this is in fact the case
+
+令 M 和 M' 是任意的两个完美匹配\N{\fs40}that m and m prime be arbitrary perfect matchings
+
+令 σ 和 σ' 是其对应的两个置换\N{\fs40}and sigma and sigma prime the corresponding permutations
+
+如果我们把这两个完美匹配放在一起\N{\fs40}if we lay both matchings on top of each other
+
+我们得到两种不同类型的结构\N{\fs40}we get two distinct types of structures
+
+一些匹配被匹配了两次\N{\fs40}some matches are doubled
+
+因为它们在两个完美匹配中都被选中了\N{\fs40}as they were chosen in both matchings
+
+其它的匹配形成了一些不相交的环  且环中的边在 M 和 M' 间交替\N{\fs40}others form disjoint cycles with edges alternating between the match in m and m prime
+
+这仅仅是因为\N{\fs40}this is simply due to the fact
+
+如果一个点在两个完美匹配中有不同的匹配方式\N{\fs40}that if a vertex didn't get matched the same way in both matchings
+
+它所对应的那两个点也就应有不同的匹配方式\N{\fs40}the two corresponding vertices also got matched differently
+
+且我们可以继续运用这点直到环闭合\N{\fs40}and we can keep going until the cycle closes
+
+注意到这些环的边是一直交替的\N{\fs40}note by the cycles of the edges alternating
+
+所以每个环的长度必须是偶数\N{\fs40}each cycle must be of even length
+
+为了找到 σ 和 σ' 的符号所相差的因子\N{\fs40}to see the factor by which the signs of sigma and sigma prime differ
+
+我们可以计数从 σ 来得到 σ' 需使用的换位次数 t\N{\fs40}we can count the number of transpositions t to get from sigma to sigma prime
+
+因为每次换位都对符号取反\N{\fs40}as each transposition switches the sign
+
+它们之间恰好相差 (-1)^t \N{\fs40}we get that they differ exactly by -1 to the t
+
+让我们一个一个来处理这些环\N{\fs40}let's deal with each cycle one by one
+
+如果我们有一个长度为 4 的环\N{\fs40}if we have a cycle of length four
+
+或者更小的环\N{\fs40}or for cycle to be short
+
+我们只需应用这个换位到这两个白点  使得把 σ 变为 σ'\N{\fs40}we just apply the transposition to the two white vertices to get from sigma to sigma prime
+
+一般地\N{\fs40}in general
+
+如果我们交换环中两个连续的白点\N{\fs40}if we swap two white vertices consecutive in the cycle
+
+那么这两个完美匹配就会多出一个重合的匹配\N{\fs40}then the matchings coincide in one more match
+
+同时环的长度会减 2\N{\fs40}and the length of the cycle is reduced by two
+
+所以我们总可以在 l-1 步之内将一个长为 2l 的环删除\N{\fs40}therefore we can always remove one 2l cycle in l-1 steps
+
+总得来说\N{\fs40}in total
+
+如果这里有 C{\fs32}1{\r} 到 C{\fs32}k{\r} 共 k 个环的话\N{\fs40}if there are k cycles c1 to ck
+
+那么 t 就可以取所有 l{\fs32}i{\r}-1 的和\N{\fs40}then t can be chosen as the sum of l_i minus one
+
+现在  这会变得相当方便\N{\fs40}now it would be really convenient
+
+如果对每个环来说  边权的积的符号在 M 和 M' 间相差的因子\N{\fs40}if for each cycle the factor by which the product of edge weights of m and m prime differ
+
+恰好抵消掉了 (-1)^(l_i-1) 的话\N{\fs40}exactly cancels out the -1 to the l_i-1
+
+我们的确会更一般地说明\N{\fs40}indeed we will show more generally
+
+在网状图中的这个包含 r 个内点、边交替地被染为红蓝色的长为 2l 的环中\N{\fs40}that in the 2l cycle of such a grid graph with r interior points and edges alternatingly colored red and blue
+
+蓝色边和红色边的边权的乘积相差一个 (-1)^(r+l-1) 的因子\N{\fs40}the product of edge weights of the blue and red edges differ by a factor of -1 to the r+l-1.
+
+注意到在我们规定的情况下 r 总是偶数\N{\fs40}notice that in our case r will always be even
+
+因为这个边界和整个网状图都有偶数个点\N{\fs40}since the boundary as well as the entire grid graph both also have an even number of vertices
+
+现在为了证明这个引理\N{\fs40}now to show this lemma
+
+考虑被这个环包围的区域会很有帮助\N{\fs40}it is helpful to think about the region surrounded by our cycle
+
+这个部分由正方形构成\N{\fs40}this part is made out of squares
+
+每个正方形都至少和相邻的正方形共享一条边\N{\fs40}where two adjacent squares must share at least one side or edge
+
+所以你可以从一个正方形开始来构造\N{\fs40}so you can construct it by starting out with one square
+
+接着在外围加上一些相邻的正方形\N{\fs40}and then adding adjacent squares from the outside
+
+为了看到红色和蓝色的边权的积是怎么改变的\N{\fs40}to see how the red and blue products change
+
+我们稍微改变一下思考方式\N{\fs40}we slightly shift our perspective
+
+并非先去用正方形建造这个区域然后再交替地对边界染色\N{\fs40}instead of first building the region using the squares and then alternatingly coloring the boundary cycle
+
+而是先对每个正方形的边界交替地染色\N{\fs40}we can first alternatingly color the boundaries of each square 
+
+然后再把它们接在一起使得公共边有相反的颜色\N{\fs40}and attach them such that the shared sides have opposite color
+
+那么当我们转变为这种新的连接方式的正方形时\N{\fs40}then at the points where we transition to the newly attached square
+
+这个方式会使这个新边界也交替地被染色\N{\fs40}this scheme will leave the new boundary colored in an alternating way as well
+
+现在  我们使用一点小技巧\N{\fs40}now we use a little trick
+
+我们知道  对于一个正方形来说\N{\fs40}we know that for a square
+
+红边积和蓝边积相差一个 -1 的因子\N{\fs40}the red and blue product of weights differ by -1
+
+所以如果这片区域由 A 个正方形构成\N{\fs40}so if the region consists of  a squares
+
+那么所有红边的积和蓝边的积就相差 (-1)^A \N{\fs40}the product of all blue weights and over all red weights including the inner edges differ by -1 to the a
+
+注意到每条内部的边都被计数了两次（红蓝各一）\N{\fs40}but each of the inner edges was counted twice
+
+所以对于边界上的红边积和蓝边积也就相差 (-1)^A 的因子\N{\fs40}so the product over the blue weights and red weights of the boundary cycle differ by -1 to the a as well
+
+因为内部的红蓝边相抵消掉了\N{\fs40}since the inner edges cancel out
+
+为了证明 r+l-1 正是 A\N{\fs40}to see that r+l-1 is the same as A
+
+我们首先能知道  如果只单看一个正方形的话\N{\fs40}we first know that if we just look at the single square
+
+这个等式显然成立\N{\fs40}the equality is definitely true
+
+现在  我们思考再新增一个正方形所有可能的方式\N{\fs40}now we just think about all the ways to add a square
+
+这使得 A 增大 1\N{\fs40}this increases A by 1
+
+所以我们可以预料 r+l-1 也会增大 1\N{\fs40}so we would expect r+l-1 to increase by 1 as well
+
+如果新增的正方形与原区域共享一条边\N{\fs40}if the new square shares one side with the region
+
+那么边界大小就会加 2\N{\fs40}then the boundary gets bigger by two
+
+那么 l 就像 A 一样增大 1\N{\fs40}so l increases by one as was a
+
+如果新增的正方形和原区域共享两条边\N{\fs40}if the new square shares two sides with the region
+
+边界大小保持不变\N{\fs40}the boundary length stays the same
+
+但一个点跑到了内部\N{\fs40}but we get one more vertex in the interior
+
+所以 r 会增大 1\N{\fs40}so r increases by one
+
+最后\N{\fs40}lastly
+
+如果新增的正方形和原区域共享三条边\N{\fs40}if the new square shares three sides with the region
+
+那么边界就会变小同时 l 减小 1\N{\fs40}then the boundary gets smaller by two decreasing l by one
+
+但多出的两个内点又使得 r 增加 2\N{\fs40}but two more vertices are part of the interior increasing r by two
+
+这对于你们之中的几何带师来说\N{\fs40}this for the geometers among you
+
+不过是皮克定理的一个简单变体\N{\fs40}is just a simplified version of Pick's theorem
+
+思考一下我们刚刚做了些什么\N{\fs40}think about what we just did
+
+我们将计数多米诺骨牌的问题\N{\fs40}we reduce the question of counting the number of domino tilings
+
+转化为了一个计算带权邻接矩阵行列式的问题\N{\fs40}to a question about calculating the determinant of a weighted bi-adjacency matrix
+
+通过证明所有的非零项都有相同的符号\N{\fs40}by showing that all of the non-zero terms have the same sign 
+
+我们得到这个行列式正是我们之前计数完美匹配的积和式\N{\fs40}which means that the determinant counts our perfect matching just as well as the permanent we had earlier
+
+作为一个小检测\N{\fs40}as a little sanity check
+
+我们来试着用刚刚的方法来计数一下多米诺骨牌\N{\fs40}let's actually use our new method for counting domino tilings
+
+看看结果是不是符合我们刚刚 2xn 的情况\N{\fs40}and see if it coincides with the result from the 2xn case
+
+为了方便  我们等价地考虑一个 nx2 的棋盘\N{\fs40}for convenience we will equivalently consider an n by 2 board
+
+同时对所有第 i 列的点标号 i\N{\fs40}and label the vertices of the ith row of the board with i
+
+那么这个带权邻接矩阵就长这样\N{\fs40}the weighted bi-adjacency matrix then looks like this
+
+幸运的是  不仅前两项刚好对应了之前的结果 1 和 2\N{\fs40}and fortunately the values do not only align for 1 and 2
+
+且对于一般的 n   通过扩展最后一行\N{\fs40}but for general n , by expanding the last row
+
+我们重新得到了斐波那契的加法公式\N{\fs40}we get back fibonacci's formula again
+
+[Music]
+
+同样值得高兴的是  我们的方法不仅适用于矩形网格图\N{\fs40}it is also good to know that our scheme not only works for rectangular grid graphs
+
+且对于所有没有洞的子图都适用\N{\fs40}but for any subgraph that forms a region without holes
+
+现在  只需要计算行列式就得到答案已经很好了\N{\fs40}now just having to calculate the determinant is already pretty nice
+
+但我们可以做得更好——把这个结果浓缩成一个单一的公式\N{\fs40}but we can do even better condensing this result into one single formula
+
+[Music]
+
+为了找到这个封闭形式的解\N{\fs40}to find this closed form solution
+
+我们的第一步当然是去尝试直接计算 B 的行列式\N{\fs40}of course the first thing we'll try is to calculate the determinant of b directly
+
+但是你可以相信我这肯定不能成功\N{\fs40}but and you can trust me on that this will not be successful
+
+所以我们应该需要想出一点其它的办法\N{\fs40}so we will have to come up with a workaround
+
+让我们看看这个普通的邻接矩阵\N{\fs40}let's actually look at the normal adjacency matrix
+
+当我们先对黑点标号再对白点标号\N{\fs40}which if we were to first enumerate the black and then the white vertices
+
+它就会有以下分块矩阵的形式\N{\fs40}just has the following block matrix form
+
+其中 B 是我们初始的带权邻接矩阵\N{\fs40}where b is our original weighted bi-adjacency matrix from before
+
+现在  因为交换列只会改变行列式的符号\N{\fs40}now since swapping rows only changes the sign of the determinant
+
+我们可以将它变换为这样\N{\fs40}we can bring this into the following shape
+
+其中 B 的转置和 B 都在对角线上\N{\fs40}where B transpose and B are on the diagonals
+
+而行列式显然就是 B^2 的行列式\N{\fs40}and the determinant of this is obviously the determinant of b squared
+
+总之  我们可以得到 K 的行列式的值就是 B^2 的行列式的值\N{\fs40}so all in all we get that the value of K's determinant is the one of b squared
+
+你可能会说  这样做似乎是多余的\N{\fs40}you might say that looking at K instead of B seems redundant
+
+但事实证明  使用 K 会得到更好的结果\N{\fs40}but working with K actually turns out to be much nicer
+
+如果我们对所有点更自然地标号\N{\fs40}if we were to enumerate the vertices in a more natural way
+
+例如这样一行一行地标号\N{\fs40}so for example just row by row
+
+there are some natural patterns emerging with clear diagonal lines
+
+if we are able to compute all of the eigenvalues
+
+the product of the
+
+eigenvalues would equal the determinant
+
+as a reminder since we are working with
+
+complex valued matrices the
+
+characteristic polynomial always
+
+decomposes into linear factors with
+
+lambda i just being the eigenvalues of
+
+our
+
+matrix plugging 0 for x we get the
+
+determinant of our matrix on the one
+
+side and the product of all eigenvalues
+
+to the power of their multiplicity on
+
+the other side
+
+[Music]
+
+before we dive into the determinant
+
+problem let's think about the structure
+
+of gmn
+
+similar to how we can think of a plane
+
+being the product of the x and y axis we
+
+can think of the grid graph as the
+
+product of two paths
+
+concretely
+
+gmn is the so-called cartesian product
+
+of the paths of length m and n
+
+here the vertices are the ordinary
+
+cartesian product of the paths vertices
+
+so with vertices of the one path in the
+
+first component and vertices of the
+
+other path in the second component
+
+two vertices are connected by an edge if
+
+they are the same in one argument in the
+
+vertices in the other argument are
+
+connected which is exactly what gives us
+
+this grid structure since edges can
+
+connect two adjacent vertices either
+
+horizontally or vertically
+
+in a second we will see that because of
+
+this construction we can derive the
+
+eigenvalues of the grid graph from the
+
+eigenvalues of its cartesian components
+
+so let's first calculate the
+
+eigenvectors and eigenvalues of the
+
+paths and to do that it is actually
+
+helpful to first calculate the
+
+eigenvalues of the cycle
+
+what makes the adjacency matrix of a
+
+cycle really nice is that it is the sum
+
+of two shift matrices
+
+these may be interpreted as the two
+
+directed cycles our undirected cycle is
+
+made out of
+
+the first matrix moves the components of
+
+a vector downwards with the last
+
+component moving up to the first
+
+this means that if you apply the matrix
+
+n times you just end up with the same
+
+vector
+
+on the other hand if we were an
+
+eigenvector of that matrix to the
+
+eigenvalue lambda
+
+multiplying by the matrix n times is
+
+equivalent to multiplying it with lambda
+
+to the n so lambda to the n needs to be
+
+1.
+
+so
+
+lambda is one of the nth roots of unity
+
+and up to multiples every corresponding
+
+eigenvector just a list of the first n
+
+powers of lambda
+
+the second matrix moves the components
+
+upwards which just means that it is
+
+actually inverse to our first matrix
+
+so this matrix has the exact same
+
+eigenvectors as the first one but to the
+
+eigenvalue of lambda to the minus 1
+
+instead of lambda
+
+to literally sum it up the eigenvalues
+
+of cn are of the form lambda plus lambda
+
+to the minus 1 where lambda is an nth
+
+root of unity
+
+or more explicitly as twice the real
+
+part of lambda
+
+2 cosine 2pi k divided by n
+
+where the corresponding eigenvector is
+
+the list of powers of e to the 2 pi k i
+
+divided by m
+
+notice how by symmetry the eigenvector
+
+generated by lambda and lambda to the
+
+minus 1 are both to the same eigenvalue
+
+let's move on to the adjacency matrix of
+
+a path
+
+for a path of length n we will consider
+
+the cycle of length 2n plus 2 and then
+
+cut off some bits later the eigenvector
+
+generated by our lambda and its inverse
+
+both correspond to the same eigenvalue 2
+
+cosine pi k divided by n plus 1. so that
+
+difference is also an eigenvector to
+
+that eigenvalue
+
+the difference is non-zero but has zero
+
+entries in the first component and the n
+
+plus second component since there we
+
+just get one minus one and minus one
+
+minus minus one respectively
+
+now look at what this means structurally
+
+the adjacency matrix of our path is
+
+contained in the adjacency matrix of our
+
+cycle as a block matrix and as the first
+
+and n plus second component are 0 we can
+
+just change the adjacency matrix in
+
+those columns while still keeping our
+
+eigenvector
+
+so we just cut the cycle in two
+
+basically restricting ourselves to the
+
+second to n plus first component of the
+
+vector in the corresponding block matrix
+
+this shows that the eigenvalues of a
+
+path are 2 cosine pi k divided by n plus
+
+1.
+
+now for the grand finale let's finally
+
+make use of the fact that our grid graph
+
+gmn is the product of pm and pn and
+
+index our matrix explicitly with the
+
+vertices
+
+it will turn out that the eigenvectors
+
+of gmn's weighted adjacency matrix k are
+
+basically the product of the
+
+eigenvectors of pm and pn
+
+for eigenvectors v of pm and w of pn to
+
+eigenvalues lambda and mu we define a
+
+new vector that is in a certain sense
+
+the product of the two
+
+we index the entries with m times n and
+
+set the xy component to be the product
+
+of the x component of v in the y
+
+component of w
+
+then looking at the x y row of k
+
+multiplied with our vector v tensor w we
+
+get the following expression where we
+
+have equality because the term and the
+
+sum can only be non-zero if the vertices
+
+are adjacent
+
+now accounting for the weights we apply
+
+to vertical and horizontal edges
+
+respectively
+
+this simplifies to the following two
+
+sums
+
+each of the sums only depends on one of
+
+the variables so we can pull the other
+
+one out and get that v tensor w is in
+
+fact an eigenvector with eigenvalue
+
+lambda plus i times mu
+
+so knowing the eigenvalues of pm and pn
+
+we get that the eigenvalues of k are the
+
+sum of these two cosine terms where x
+
+and y range from one to m and one to n
+
+respectively and we finally arrive at
+
+the astounding fact that the determinant
+
+can be expressed as the following double
+
+product
+
+and as we have seen before the number of
+
+domino tilings of an n-by-n board is
+
+just the square root of this
+
+this is the formula for the number of
+
+tilings that we have wanted all along
+
+but it is also worth mentioning that it
+
+is truly amazing how this expression
+
+containing roots irrational and
+
+imaginary numbers actually always
+
+evaluates to an integer
+
+at least for some values you can see the
+
+correspondence to our original problem
+
+if m and n are both odd then n plus one
+
+and n plus one are both even in the m
+
+plus one half n plus one half term in
+
+the product vanishes
+
+[Music]
+
+also
+
+maybe to amaze kids that just learned
+
+about trigonometry but don't know
+
+anything about complex numbers you can
+
+get rid of the eye as follows
+
+if both m and n are even then we have
+
+the following simplifications of the
+
+cosine terms so the product simplifies
+
+like this
+
+and we can actually count the number of
+
+perfect matchings for even m and n using
+
+this real formula
+
+it turns out that in general we have to
+
+round up the upper bounds which will
+
+make the formula work in cases where at
+
+least one of m and n is odd
+
+but we have done enough tedious
+
+calculations for now so we will leave it
+
+at that
+
+even though it took us the entire video
+
+to develop this theorem first arrived by
+
+fischer castelline in temple a we really
+
+are just scratching the surface
+
+the first generalization would probably
+
+be to allow holes in our board
+
+in this case our formula still works
+
+sometimes but sometimes it also fails
+
+you might also naturally ask the same
+
+question but what different dominoes or
+
+different shapes making up the board
+
+what is the number if we consider higher
+
+dimensions
+
+or maybe work on a taurus instead
+
+on the graph theory side while computing
+
+the number of perfect matchings in a
+
+graph is a very hard problem the class
+
+of graphs for which our signing trick
+
+works are called faffin which does have
+
+to do with the faffi and you may know
+
+from linear algebra
+
+in particular it is actually known that
+
+all planar graphs are fufian and a
+
+signing can be found using the so-called
+
+fkt algorithm
+
+named after the physicists who also came
+
+up with our main theorem
+
+maybe going back to tilings there is a
+
+very curious phenomenon happening if we
+
+look at random tilings from certain
+
+large mutilated boards
+
+if we color the dominoes depending on
+
+how they are placed on the board we see
+
+a distinctive circle in the middle of
+
+the board
+
+in general even for other tidings a
+
+similar thing can be observed
+
+finally although the last formula we
+
+derived is not really of any direct
+
+practical value you would get a lot of
+
+rounding errors with those cosines very
+
+quickly
+
+it is just as important and as beautiful
+
+as the previous practical steps
+
+mathematics is about finding new and
+
+surprising connections regardless of how
+
+practically useful they turn out to be
+
+
