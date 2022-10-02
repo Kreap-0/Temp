@@ -720,7 +720,7 @@ C{\fs32}n{\r} 的特征值就应是 λ+1/λ \N{\fs40}the eigenvalues of C_n are 
 
 所以我们可以直接把这个环切成两个\N{\fs40}so we just cut the cycle in two
 
-只需将我们的目光放在第 2 行到第 n+1 行对应的块矩阵当中\N{\fs40}basically restricting ourselves to the second to n plus first component of the vector in the corresponding block matrix
+之后只需将我们的目光放在第 2 行到第 n+1 行对应的块矩阵当中\N{\fs40}basically restricting ourselves to the second to n plus first component of the vector in the corresponding block matrix
 
 这说明一条路径的特征向量正是 2cos(πk/(n+1))\N{\fs40}this shows that the eigenvalues of a path are 2 cosine pi k divided by n plus 1
 
@@ -738,127 +738,130 @@ C{\fs32}n{\r} 的特征值就应是 λ+1/λ \N{\fs40}the eigenvalues of C_n are 
 
 我们定义一个新向量  它在某种意义上是二者的乘积\N{\fs40}we define a new vector that is in a certain sense the product of the two
 
-我们将元素依次标号 1~m*n\N{\fs40}we index the entries with m times n
+我们将元素依次设置下标 (1,1)~(m,n)\N{\fs40}we index the entries with m times n
 
 并令项 (x,y) 的值为 v 的第 x 个分量乘上 w 的第 y 个分量\N{\fs40}and set the (x,y) component to be the product of the x component of v in the y component of w
 
-then looking at the x y row of k multiplied with our vector v tensor w
+考虑 K 的项 (x,y) 乘上我们的张量 v⨂w \N{\fs40}then looking at the x y row of K multiplied with our vector v tensor w
 
-we get the following expression
+我们得到如下表达式\N{\fs40}we get the following expression
 
-where we have equality because the term and the sum can only be non-zero
+由于项以及和只能是非零的  所以等式成立\N{\fs40}where we have equality because the term and the sum can only be non-zero
 
-if the vertices are adjacent
+条件是点是相邻的\N{\fs40}if the vertices are adjacent
 
-now accounting for the weights we apply to vertical and horizontal edges respectively
+现在  依次考虑我们赋予竖边和横边的权重\N{\fs40}now accounting for the weights we apply to vertical and horizontal edges respectively
 
-this simplifies to the following two sums
+这将式子化简为两个和式\N{\fs40}this simplifies to the following two sums
 
-each of the sums only depends on one of the variables
+每个和式只依赖于其中一个变量\N{\fs40}each of the sums only depends on one of the variables
 
-so we can pull the other one out and get that v tensor w is in fact an eigenvector with eigenvalue lambda plus i times mu
+所以我们可以直接把另一项提出来\N{\fs40}so we can pull the other one out
 
-so knowing the eigenvalues of pm and pn
+这就得到张量 v⨂w 其实就是特征向量  同时特征值是 λ+iμ\N{\fs40}and get that v tensor w is in fact an eigenvector with eigenvalue lambda plus i times mu
 
-we get that the eigenvalues of k are the sum of these two cosine terms
+由于我们之间已经得到了 P{\fs32}m{\r} 和 P{\fs32}n{\r} 的特征值\N{\fs40}so knowing the eigenvalues of P_m and P_n
 
-where x and y range from one to m and one to n respectively 
-and we finally arrive at the astounding fact
+我们可以得到 K 的特征值就是这两个 cos 项的和\N{\fs40}we get that the eigenvalues of K are the sum of these two cosine terms
 
-that the determinant can be expressed as the following double product
+其中 x 为 1~m 以及 y 为 1~n\N{\fs40}where x and y range from one to m and one to n respectively 
 
-and as we have seen before
+于是  我们最终就得到了这样震惊的结果\N{\fs40}and we finally arrive at the astounding fact
 
-the number of domino tilings of an n-by-n board is just the square root of this
+即  行列式可以表达为如下二重积式\N{\fs40}that the determinant can be expressed as the following double product
 
-this is the formula for the number of tilings that we have wanted all along
+同时  正如我们之间所看到的\N{\fs40}and as we have seen before
 
-but it is also worth mentioning that it is truly amazing
+n*n 棋盘的多米诺骨牌平铺方案可以由这个式子直接开根得到\N{\fs40}the number of domino tilings of an n-by-n board is just the square root of this
 
-how this expression containing roots irrational and imaginary numbers actually always evaluates to an integer
+这就是我们一直想得到的计算平铺方案数的公式\N{\fs40}this is the formula for the number of tilings that we have wanted all along
 
-at least for some values you can see the correspondence to our original problem
+但还有一点非常令人惊叹且值得提及的是\N{\fs40}but it is also worth mentioning that it is truly amazing
 
-if m and n are both odd
+这个包含为无理数和虚数的根的表达式最后的值总是整数\N{\fs40}how this expression containing roots irrational and imaginary numbers actually always evaluates to an integer
 
-then n plus one and n plus one are both even
+至少对于一些值来说  你可以看到这是符合的\N{\fs40}at least for some values you can see the correspondence to our original problem
 
-and the m plus one half n plus one half term in the product vanishes
+如果 m 和 n 都是奇数\N{\fs40}if m and n are both odd
+
+那么 m+1 和 n+1 就都是偶数\N{\fs40}then n plus one and n plus one are both even
+
+从而 (m+1)/2 和 (n+1)/2 的项就为 0\N{\fs40}and the m plus one half n plus one half term in the product vanishes
 
 [Music]
 
-also
+同样\N{\fs40}also
 
-maybe to amaze kids that just learned about trigonometry but don't know anything about complex numbers
+或许是为了能让那些刚学过三角函数但对复数一无所知的孩子也能感到惊讶\N{\fs40}maybe to amaze kids that just learned about trigonometry but don't know anything about complex numbers
 
-you can get rid of the eye as follows
+你如下可以摆脱虚数 i\N{\fs40}you can get rid of the i as follows
 
-if both m and n are even
+当 m 和 n 都是偶数\N{\fs40}if both m and n are even
 
-then we have the following simplifications of the cosine terms
+那么就可以对 cos 进行如下化简\N{\fs40}then we have the following simplifications of the cosine terms
 
-so the product simplifies like this
+那么式子就化简成这样\N{\fs40}so the product simplifies like this
 
-and we can actually count the number of perfect matchings for even m and n using this real formula
+于是我们就能通过使用一个实数公式来计数完美匹配\N{\fs40}and we can actually count the number of perfect matchings for even m and n using this real formula
 
-it turns out that in general we have to round up the upper bounds
+事实证明  一般来说  我们必须对上界下取整\N{\fs40}it turns out that in general we have to round up the upper bounds
 
-which will make the formula work in cases where at least one of m and n is odd
+这使得这个式子在 m 和 n 至少有一个是奇数的时候也成立\N{\fs40}which will make the formula work in cases where at least one of m and n is odd
 
-but we have done enough tedious calculations for now
+但目前我们已经做了足够繁琐的计算\N{\fs40}but we have done enough tedious calculations for now
 
-so we will leave it at that
+所以我们还是聊点别的吧\N{\fs40}so we will leave it at that
 
-even though it took us the entire video to develop this theorem first arrived by fischer castelline in temple
+尽管我们花了整整一个视频来推导这个首先由 Fisher、Kasteleyn 和 Temperley 发现的定理\N{\fs40}even though it took us the entire video to develop this theorem first arrived by Fisher、Kasteleyn and Temperley
 
-we really are just scratching the surface
+也不过是触及了皮毛\N{\fs40}we really are just scratching the surface
 
-the first generalization would probably be to allow holes in our board
+第一个对这个式子的一般化应该是使得棋盘上可以有洞\N{\fs40}the first generalization would probably be to allow holes in our board
 
-in this case our formula still works sometimes
+在这种情况下  我们现在的公式有时仍旧有效\N{\fs40}in this case our formula still works sometimes
 
-but sometimes it also fails
+但有时也不太行\N{\fs40}but sometimes it also fails
 
-you might also naturally ask the same question but for different dominoes or different shapes making up the board
+你可能很自然地会问  如果换种骨牌或者图形来平铺会怎么样\N{\fs40}you might also naturally ask the same question but for different dominoes or different shapes making up the board
 
-what is the number if we consider higher dimensions
+以及  高维的情况又是怎样的呢\N{\fs40}what is the number if we consider higher dimensions
 
-or maybe work on a taurus instead
+或者在一个环面上又是怎样的\N{\fs40}or maybe work on a torus instead
 
-on the graph theory side
+以图论来说\N{\fs40}on the graph theory side
 
-while computing the number of perfect matchings in a graph is a very hard problem
+计算一个图的完美匹配个数是非常困难的\N{\fs40}while computing the number of perfect matchings in a graph is a very hard problem
 
-the class of graphs for which our signing trick works are called faffin
+而使得我们符号技巧有用的这类图被叫做 Pfaffian\N{\fs40}the class of graphs for which our signing trick works are called Pfaffian
 
-which does have to do with the faffi and you may know from linear algebra
+这些技巧确实和 Pfaffian 图的性质有关  从线性代数中你可以知道这一点\N{\fs40}which does have to do with the Pfaffian and you may know from linear algebra
 
-in particular it is actually known that all planar graphs are fufian
+特别地  实际上平面图都是 Pfaffian 的\N{\fs40}in particular it is actually known that all planar graphs are Pfaffian
 
-and a signing can be found using the so-called fkt algorithm
+而一个处理符号的方式可以被一个称为 FKT 的算法找到\N{\fs40}and a signing can be found using the so-called FKT algorithm
 
-named after the physicists who also came up with our main theorem
+这个算法的名字是由刚刚提及的三个物理学家名字的首字母构成的\N{\fs40}named after the physicists who also came up with our main theorem
 
-maybe going back to tilings there is a very curious phenomenon happening
+现在让我们回到这些平铺方案本身  你会发现一些有趣的事\N{\fs40}maybe going back to the tilings there is a very curious phenomenon happening
 
-if we look at random tilings from certain large mutilated boards
+当我们观察一个很大的四角残缺的棋盘上的平铺方案的时候\N{\fs40}if we look at random tilings from certain large mutilated boards
 
-if we color the dominoes depending on how they are placed on the board
+如果根据它们被放置的方式来涂色\N{\fs40}if we color the dominoes depending on how they are placed on the board
 
-we see a distinctive circle in the middle of the board
+我们就可以看到棋盘中间有一个清晰的环\N{\fs40}we see a distinct circle in the middle of the board
 
-in general even for other tidings
+一般地  甚至对于其它平铺来说\N{\fs40}in general even for other tilings
 
-a similar thing can be observed
+你也会发现这样相似的结构\N{\fs40}a similar thing can be observed
 
-finally
+终于\N{\fs40}finally
 
-although the last formula we derived is not really of any direct practical value
+虽然我们最后推导的公式实际上没有任何直接的实用价值\N{\fs40}although the last formula we derived is not really of any direct practical value
 
-you would get a lot of rounding errors with those cosines very quickly
+这是由于 cos 会很快造成精度误差\N{\fs40}you would get a lot of rounding errors with those cosines very quickly
 
-it is just as important and as beautiful as the previous practical steps
+但它和前面那些有用的步骤一样重要和漂亮\N{\fs40}it is just as important and as beautiful as the previous practical steps
 
-mathematics is about finding new and surprising connections
+因为数学的意义本就是去发现新的令人惊讶的联系\N{\fs40}mathematics is about finding new and surprising connections
 
-regardless of how practically useful they turn out to be
+无论实用与否\N{\fs40}regardless of how practically useful they turn out to be
