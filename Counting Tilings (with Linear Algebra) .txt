@@ -1,14 +1,14 @@
-如果你曾经上过离散数学或组合数学的课\N {\fs40} if you have ever taken a class in discrete maths or combinatorics 
+如果你曾经上过一些离散数学或组合数学的课\N {\fs40} if you have ever taken a class in discrete maths or combinatorics 
 
 你可能会遇到过这样的练习\N {\fs40} you might have come across the following exercise
 
-既  我们被要求计算用一些 2x1 的多米诺骨牌来铺满一个 2xn 的棋盘的方案数\N {\fs40} where we are asked to calculate the number of ways a 2 by n board can be tiled with two by one domino tiles
+即  我们被要求计算用一些 2x1 的多米诺骨牌来铺满一个 2xn 的棋盘的方案数\N {\fs40} where we are asked to calculate the number of ways a 2 by n board can be tiled with two by one domino tiles
 
 如果这是你第一次听说这个问题\N {\fs40} if this is the first time you ever heard of this question
 
 那这可能相当困难\N {\fs40} it may seem fairly hard
 
-这里既没有一种对所有填充方案比较显然的排序方式\N {\fs40} there neither seems to be an obvious way to order the titlings
+因为这里既没有一种对所有填充方案比较显然的排序方式\N {\fs40} there neither seems to be an obvious way to order the titlings
 
 也不能确保你考虑了所有可能情况\N {\fs40} nor to make sure that you have accounted for all the possibilities
 
@@ -16,7 +16,7 @@
 
 我们先来给我们要求的这个东西命个名\N {\fs40} let's first give the thing we are looking for a name
 
-因为名字让大多数这样的东西没那么可怕\N {\fs40} since names make most things less scary
+因为在大部分情况下, 起一个名字让原来的问题没那么可怕\N {\fs40} since names make most things less scary
 
 那么从现在开始  我们将用 f{\fs32}n{\r} 来表示铺满 2xn 的棋盘的方案总数\N {\fs40} so from now on we will write f_n for the number of ways to tile the 2 by n board
 
@@ -26,11 +26,11 @@
 
 而对于 f_2   我们有两种方式\N {\fs40} and for f2 we have two ways
 
-既  要么全部横着放要么全部竖着放\N {\fs40} either we place both tiles horizontally or both vertically
+即  要么全部横着放要么全部竖着放\N {\fs40} either we place both tiles horizontally or both vertically
 
 对于 f_3   问题已经变得有点棘手了\N {\fs40} for f3 the problem already becomes a bit trickier
 
-但我们仍然可以算出  我们有以下三种铺法\N {\fs40} but we can still figure out that we have the following three tilings
+但我们仍然可以搞明白  我们有以下三种铺法\N {\fs40} but we can still figure out that we have the following three tilings
 
 通过更多的计算\N {\fs40} with even more work
 
@@ -92,23 +92,23 @@
 
 [Music]
 
-为了熟悉情况\N {\fs40} for the sake of familiarity
+为了熟悉问题\N {\fs40} for the sake of familiarity
 
 我们现在来考虑一个典型的8x8的棋盘\N {\fs40} let's consider for now a typical 8x8 chessboard
 
 把问题重新表述为我们更熟悉的内容总是一个好主意\N {\fs40}it is always a good idea to rephrase the problem to something we are more familiar with
 
-所以让我们先来讨论一下一个多米诺骨牌平铺实际上意味着什么\N {\fs40}so let's discuss what we actually mean by a domino tiling
+所以让我们先来讨论一下一个多米诺骨牌平铺到底意味着什么\N {\fs40}so let's discuss what we actually mean by a domino tiling
 
 正如这些颜色所示\N {\fs40}as suggested by the colors
 
-一个多米诺骨牌总是覆盖了两个相邻的格子\N {\fs40}the domino always covers two neighboring squares
+一个多米诺骨牌总是会覆盖两个相邻的格子\N {\fs40}the domino always covers two neighboring squares
 
-一个黑的一个白的\N {\fs40}one of which is black and the other white
+其中一个是黑的 一个是白的\N {\fs40}one of which is black and the other white
 
 同时当我们谈论平铺的时候\N {\fs40}also when we talk about tilings
 
-我们当然不想让这些骨牌重叠\N {\fs40}we of course do not want the tiles to overlap
+我们也当然不想让这些骨牌重叠\N {\fs40}we of course do not want the tiles to overlap
 
 意味着每个黑块一定和一个唯一的相邻白块匹配  反之亦然\N {\fs40}meaning that every black square is to be matched to your unique neighboring white square and vice versa
 
@@ -150,9 +150,9 @@
 
 正如我们所观察到的\N{\fs40} as we have observed
 
-一个匹配只会发生在相反颜色之间\N{\fs40} A match can only happen between vertices of opposite colors 
+一个匹配只会发生在两个不同色的顶点之间\N{\fs40} A match can only happen between vertices of opposite colors 
 
-且对于一个完美匹配  每个点都需要匹配\N{\fs40} and for a perfect matching each vertex has to be matched
+且对于一个完美匹配而言  每个点都需要匹配\N{\fs40} and for a perfect matching each vertex has to be matched
 
 因此我们可以将完美匹配看作一种从黑点到白点的映射\N{\fs40}we can therefore think of a perfect matching as a sort of mapping from each black vertex to a white vertex
 
@@ -170,7 +170,7 @@
 
 所以我们将 mn/2 定义为大 N \N{\fs40}so we'll define m times n halves to be capital n
 
-由此  我们现在对我们的问题有了更多的了解\N{\fs40}from this we have now gathered some more insight into our problem
+好  我们现在对我们的问题有了更多的了解\N{\fs40}from this we have now gathered some more insight into our problem
 
 例如  如果 m 和 n 都是奇数\N{\fs40}for example if m and n are both odd
 
@@ -180,19 +180,19 @@
 
 同时  由于我们将标号固定了\N{\fs40}also with the labeling fixed
 
-每个完美匹配都与一个唯一的置换相对应\N{\fs40}every perfect matching corresponds to a unique permutation
+这就意味着每个完美匹配都与一个唯一的置换相对应\N{\fs40}every perfect matching corresponds to a unique permutation
 
 那么完美匹配的个数就最多是大 N 的阶乘\N{\fs40}so the number of perfect matchings is at most capital n factorial
 
-这并不是一个很好的上界但或许是一个开始\N{\fs40}which is not a great upper bound but maybe a start
+这是原来问题的一个上界. 可能不是很好 但或许是一个开始\N{\fs40}which is not a great upper bound but maybe a start
 
 显然有一些置换找不到完美匹配与之对应\N{\fs40}there are clearly permutations which do not correspond to a perfect matching
 
-这是因为我们还没有考虑相匹配的黑白点一定是相邻的这一事实\N{\fs40}since we haven't yet accounted for the fact that the black and white vertices in a match have to be neighbors
+因为我们还没有考虑这样的限制: 相匹配的黑白点一定是相邻的\N{\fs40}since we haven't yet accounted for the fact that the black and white vertices in a match have to be neighbors
 
 所以我们应可以优化这个上界\N{\fs40}so we should be able to improve that upper bound 
 
-且实际上甚至可以得到一个确切的结果\N{\fs40}and will in fact even arrive at an exact result
+其实甚至可以得到一个确切的结果\N{\fs40}and will in fact even arrive at an exact result
 
 为了完成这一点  我们需要更多的一些定义\N{\fs40}to do this we will need a couple of more definitions
 
@@ -236,11 +236,11 @@
 
 虽然它迷惑性地看上去和行列式很像\N{\fs40}and while looking deceptively similar to the determinant
 
-但并没有真正的几何意义\N{\fs40}it has no real geometric meaning
+但却并没有真正的几何意义\N{\fs40}it has no real geometric meaning
 
 且由于不能很好的进行行变换而难以计算\N{\fs40}and is very hard to compute as it doesn't behave nicely under row operations
 
-但或许我们仍可以让这行得通\N{\fs40}but maybe we can still make it work
+但或许我们仍有办法把它算出来\N{\fs40}but maybe we can still make it work
 
 如果元素 b{\fs32}i,j{\r} 要么是 0 要么是 1 会怎么样呢\N{\fs40}what if instead of the bij being either 0 or 1
 
@@ -262,7 +262,7 @@
 
 即这意味着两个数字相对于彼此被重新定义排序\N{\fs40}so it just means a reordering of two numbers relative to each other
 
-具体一点\N{\fs40}concretely
+具体来说\N{\fs40}concretely
 
 如果我们将每个数和它的映射间连一根线来绘制这个置换\N{\fs40}if we were to draw the permutation by connecting each number to its image
 
@@ -416,11 +416,11 @@ i 或 -i\N{\fs40}i and minus i
 
 那么 t 就可以取所有 l{\fs32}i{\r}-1 的和\N{\fs40}then t can be chosen as the sum of l_i minus one
 
-现在  这会变得相当方便\N{\fs40}now it would be really convenient
+现在 如果对每个环来说 \N{\fs40}now it would be really convenient
 
-如果对每个环来说  边权的积的符号在 M 和 M' 间相差的因子\N{\fs40}if for each cycle the factor by which the product of edge weights of m and m prime differ
+边权的积的符号在 M 和 M' 间相差的因子\N{\fs40}if for each cycle the factor by which the product of edge weights of m and m prime differ
 
-恰好抵消掉了 (-1)^(l_i-1) 的话\N{\fs40}exactly cancels out the -1 to the l_i-1
+恰好抵消掉了 (-1)^(l_i-1) 的话  事情就会变得相当方便\N{\fs40}exactly cancels out the -1 to the l_i-1
 
 我们的确会更一般地说明\N{\fs40}indeed we will show more generally
 
@@ -510,19 +510,19 @@ i 或 -i\N{\fs40}i and minus i
 
 这对于你们之中的几何带师来说\N{\fs40}this for the geometers among you
 
-不过是皮克定理的一个简单变体\N{\fs40}is just a simplified version of Pick's theorem
+不过是一个简化版本的皮克定理\N{\fs40}is just a simplified version of Pick's theorem
 
-思考一下我们刚刚做了些什么\N{\fs40}think about what we just did
+好  思考一下我们刚刚做了些什么\N{\fs40}think about what we just did
 
 我们将计数多米诺骨牌的问题\N{\fs40}we reduce the question of counting the number of domino tilings
 
-转化为了一个计算带权邻接矩阵行列式的问题\N{\fs40}to a question about calculating the determinant of a weighted bi-adjacency matrix
+简化为了一个计算带权邻接矩阵行列式的问题\N{\fs40}to a question about calculating the determinant of a weighted bi-adjacency matrix
 
 通过证明所有的非零项都有相同的符号\N{\fs40}by showing that all of the non-zero terms have the same sign 
 
 我们得到这个行列式正是我们之前计数完美匹配的积和式\N{\fs40}which means that the determinant counts our perfect matching just as well as the permanent we had earlier
 
-作为一个小检测\N{\fs40}as a little sanity check
+作为一个小验证\N{\fs40}as a little sanity check
 
 我们来试着用刚刚的方法来计数一下多米诺骨牌\N{\fs40}let's actually use our new method for counting domino tilings
 
@@ -604,7 +604,7 @@ i 或 -i\N{\fs40}i and minus i
 
 在一边  我们得到矩阵的行列式\N{\fs40}we get the determinant of our matrix on the one side
 
-另一边  得到每个特征值的重复次数次方的积\N{\fs40}and the product of all eigenvalues to the power of their multiplicity on the other side
+在另一边  得到每个特征值的重复次数次方的积\N{\fs40}and the product of all eigenvalues to the power of their multiplicity on the other side
 
 [Music]
 
@@ -648,11 +648,11 @@ G{\fs32}mn{\r} 就是所谓长度为 m 和 n 的路径的笛卡尔积\N{\fs40}G_
 
 一个环的邻接矩阵好在  它是两个循环矩阵的和\N{\fs40}what makes the adjacency matrix of a cycle really nice is that it is the sum of two shift matrices
 
-而这个矩阵可以被译作构成我们无向图的两个有向图\N{\fs40}these may be interpreted as the two directed cycles our undirected cycle is made out of
+而这个矩阵可以被看作构成我们无向图的两个有向图\N{\fs40}these may be interpreted as the two directed cycles our undirected cycle is made out of
 
-第一个矩阵可以使得一个向量的分量向下位移\N{\fs40}the first matrix moves the components of a vector downwards
+第一个矩阵可以使得一个向量的分量向下移动\N{\fs40}the first matrix moves the components of a vector downwards
 
-同时第二个矩阵使得其向量分量向上位移\N{\fs40}with the last component moving up to the first
+同时第二个矩阵使得其向量分量向上移动\N{\fs40}with the last component moving up to the first
 
 这意味着\N{\fs40}this means that
 
@@ -678,7 +678,7 @@ G{\fs32}mn{\r} 就是所谓长度为 m 和 n 的路径的笛卡尔积\N{\fs40}G_
 
 但特征值应是 1/λ 而非 λ\N{\fs40}but to the eigenvalue of lambda to the minus 1 instead of lambda
 
-总得来说\N{\fs40}to literally sum it up
+总的来说\N{\fs40}to literally sum it up
 
 C{\fs32}n{\r} 的特征值就应是 λ+1/λ \N{\fs40}the eigenvalues of C_n are of the form lambda plus lambda to the minus 1
 
@@ -726,13 +726,13 @@ C{\fs32}n{\r} 的特征值就应是 λ+1/λ \N{\fs40}the eigenvalues of C_n are 
 
 现在  对于最后一步\N{\fs40}now for the grand finale
 
-我们只需要最后应用 G{\fs32}mn{\r} 是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 的积的事实\N{\fs40}let's finally make use of the fact that our grid graph G_mn is the product of P_m and P_n
+我们只需要最后应用 G{\fs32}mn{\r} 是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 的积这样一个事实\N{\fs40}let's finally make use of the fact that our grid graph G_mn is the product of P_m and P_n
 
 然后明确地将我们的矩阵中的点标号\N{\fs40}and index our matrix explicitly with the vertices
 
 之后将证明 G{\fs32}mn{\r} 的带权邻接矩阵的特征向量\N{\fs40}it will turn out that the eigenvectors of G_mn's weighted adjacency matrix K
 
-大体上就是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 特征向量的积\N{\fs40}are basically the product of the eigenvectors of pm and pn
+就是 P{\fs32}m{\r} 和 P{\fs32}n{\r} 特征向量的积\N{\fs40}are basically the product of the eigenvectors of pm and pn
 
 对于 P{\fs32}m{\r} 的特征向量 v 及特征值 λ 和 P{\fs32}n{\r} 的特征向量 w 及特征值 μ\N{\fs40}for eigenvectors v of pm and w of pn to eigenvalues lambda and mu
 
